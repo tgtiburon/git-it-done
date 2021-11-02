@@ -15,9 +15,18 @@ console.log("homepage.js is loaded!");
 */
 
 
-let getUserRepos = function () {
-    console.log("getUserRepos was called");
-    fetch("https://api.github.com/users/octocat/repos");
+let getUserRepos = function (user) {
+
+
+    // format the github api url
+    let apiUrl = "https://api.github.com/users/" + user + "/repos";
+
+    // make a request to the url
+    fetch(apiUrl).then(function(response) {
+        response.json().then(function(data) {
+            console.log(data);
+        });
+    });
 };
 
 //#endregion
