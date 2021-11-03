@@ -13,16 +13,24 @@ const getRepoName = () => {
 
     // We use the [1] to get the second element (repo)
     let repoName = queryString.split("=")[1];
-    console.log(repoName);
+   //console.log(repoName);
+
+    if(repoName) {
+        repoNameEl.textContent = repoName;
+
+        getRepoIssues(repoName);
+
+    } else {
+        // if no repo name redirect to start page
+        document.location.replace("./index.html");
+    }
+    
+   
 
 
-    getRepoIssues(repoName);
-    repoNameEl.textContent = repoName;
 
 
-
-
-}
+};
 
 const getRepoIssues = (repo) => {
     console.log("repo");
@@ -41,7 +49,9 @@ const getRepoIssues = (repo) => {
                 }
             });
         } else {
-            alert("There was a problem with your request!");
+            //alert("There was a problem with your request!");
+            // if not successful redirect to homepage
+            document.location.replace("./index.html");
         }
     });
 
