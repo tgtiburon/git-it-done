@@ -27,6 +27,9 @@ A website allows the user to search for open issues either for an individual use
     * Dynamically creating web elements.
     * Dynamically updated API calls depending on what the user wanted.
     * Changed query strings while accessing github's API
+    * Ability to read server-side API.
+    * Used an HTTP request response to display data to a user.
+    * Handled fetch responses and accounted for errors.
 
 
 
