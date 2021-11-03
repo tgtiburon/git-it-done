@@ -2,9 +2,27 @@ console.log("single.js is loaded");
 
 let issueContainerEl = document.querySelector("#issues-container");
 let limitWarningEl = document.querySelector("#limit-warning");
+let repoNameEl = document.querySelector("#repo-name");
 
 
 
+
+const getRepoName = () => {
+    // will return user/repo
+    let queryString = document.location.search;
+
+    // We use the [1] to get the second element (repo)
+    let repoName = queryString.split("=")[1];
+    console.log(repoName);
+
+
+    getRepoIssues(repoName);
+    repoNameEl.textContent = repoName;
+
+
+
+
+}
 
 const getRepoIssues = (repo) => {
     console.log("repo");
@@ -92,4 +110,5 @@ const displayWarning = (repo) => {
 
 
 
-getRepoIssues("facebook/react");
+
+getRepoName();
